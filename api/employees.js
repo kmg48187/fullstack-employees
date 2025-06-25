@@ -52,12 +52,13 @@ const { name, birthday, salary } = req.body;
   if( !name || !birthday || !salary )
     return res.status(400).send("Request body must have: name, birthday, salary")
 
-  const movie = await updateEmployee({
-    id: req.movie.id,
+  const employee = await updateEmployee({
+    id: req.employee.id,
     name,
     birthday,
     salary
  });
-  res.send(movie);
+  res.status(200)
+  .send(employee);
 }); 
 

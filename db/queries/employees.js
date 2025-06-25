@@ -55,8 +55,9 @@ export async function updateEmployee({ id, name, birthday, salary }) {
     birthday = $3,
     salary = $4,
   WHERE id = $1
+  RETURNING *
   `;
-  const {rows: [employee]}
+  const {rows: [employee],}
    = await db.query(sql,[id, name, birthday, salary]);
 return employee;
 }
