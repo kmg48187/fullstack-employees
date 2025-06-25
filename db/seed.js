@@ -7,11 +7,11 @@ await db.end();
 console.log("🌱 Database seeded.");
 
 async function seedEmployees() {
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 11; i++) {
     const employee = {
-      name: faker.name.text(),
-      birthsday: faker.date.past({ years: 50 }),
-      salary: faker.number.int({ min: 5000, max: 100000 }),
+      name: "Employee" + i,
+      birthsday: "2002-01-01",
+      salary: Math.floor(Math.random()* 500000),
     };
     await createEmployee(employee);
   }
